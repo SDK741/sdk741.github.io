@@ -232,15 +232,14 @@
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <pat
-                        h d="M15.5 8.5c.3-1.8.3-3.7 0-5.5" />
+                        <path d="M15.5 8.5c.3-1.8.3-3.7 0-5.5" />
                         <path d="M12 16.5c-2.3 0-4.4-.8-6-2.5" />
                         <path d="M8.5 8.5c-.3-1.8-.3-3.7 0-5.5" />
                         <path d="M12 2.5c2.3 0 4.4.8 6 2.5" />
                         <path d="M14.5 13.5c.3-1.8.3-3.7 0-5.5" />
                         <path d="M9.5 13.5c-.3-1.8-.3-3.7 0-5.5" />
                         <path d="M12 20.5c-2.3 0-4.4-.8-6-2.5" />
-                        <path labore="M12 2.5c-2.3 0-4.4.8-6 2.5" />
+                        <path d="M12 2.5c-2.3 0-4.4.8-6 2.5" />
                         <circle cx="12" cy="12" r="10" />
                     </svg>
                     Módulo 1: Conciencia
@@ -295,7 +294,7 @@
                             d="M12 3v1m7 7h-1m-1 7-2-2m-7-7H5m1-7 2 2m10 10 2 2M3 12h1m7-7v1m7 7h-1m-1 7-2-2m-7-7H5m1 7 2 2" />
                         <circle cx="12" cy="12" r="10" />
                     </svg>
-                    Conclusión
+                    Módulo 6: Conclusión
                 </a>
                 <a class="nav-link" data-target="resources">
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -388,6 +387,12 @@
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module1')">Comenzar el Taller →</button>
                 </div>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg hidden" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg hidden" onclick="navigateNext()">Siguiente
+                        →</button>
+                </div>
             </section>
 
             <!-- Sección del Módulo 1 -->
@@ -447,9 +452,10 @@
                             agua).</p>
                     </div>
                 </div>
-                <!-- Botón para avanzar al siguiente módulo -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('module2')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
@@ -535,9 +541,10 @@
                             style="display: none;"></div>
                     </div>
                 </div>
-                <!-- Botón para avanzar al siguiente módulo -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('module3')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
@@ -601,9 +608,10 @@
                     </div>
                     <button class="btn-primary" onclick="generateAffirmation()">Nueva Afirmación</button>
                 </div>
-                <!-- Botón para avanzar al siguiente módulo -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('module4')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
@@ -657,9 +665,10 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Botón para avanzar al siguiente módulo -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('module5')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
@@ -749,15 +758,16 @@
                     <button class="btn-primary" onclick="saveActionPlan()">Guardar Plan</button>
                     <div id="plan-feedback" class="feedback-box" style="display: none;"></div>
                 </div>
-                <!-- Botón para avanzar al siguiente módulo -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('module6')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
             <!-- Sección del Módulo 6 -->
             <section id="module6" class="content-section">
-                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Conclusión</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 6: Conclusión</h2>
                 <p class="text-lg text-slate-600 mb-8">Has llegado al final de este taller, un viaje hacia el manejo
                     asertivo de tus emociones y el fortalecimiento de tu resiliencia. A lo largo de los módulos, has
                     aprendido a reconocer tus emociones, desarrollar la asertividad, regular tus pensamientos, mejorar
@@ -794,9 +804,10 @@
                         <li>Consulta los recursos de ayuda si necesitas asistencia adicional.</li>
                     </ul>
                 </div>
-                <!-- Botón para explorar recursos -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('resources')">Explorar Recursos de Ayuda
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateTo('resources')">Siguiente
                         →</button>
                 </div>
             </section>
@@ -850,9 +861,10 @@
                         </ul>
                     </div>
                 </div>
-                <!-- Botón para avanzar a la sección de referencias -->
-                <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('references')">Siguiente Sección →</button>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg" onclick="navigateNext()">Siguiente →</button>
                 </div>
             </section>
 
@@ -905,6 +917,12 @@
                         </li>
                     </ol>
                 </div>
+                <!-- Controles de navegación -->
+                <div class="flex justify-between mt-6">
+                    <button id="prevBtn" class="btn-primary text-lg" onclick="navigatePrev()">← Anterior</button>
+                    <button id="nextBtn" class="btn-primary text-lg hidden" onclick="navigateNext()">Siguiente
+                        →</button>
+                </div>
             </section>
 
             <!-- Pie de página -->
@@ -933,6 +951,8 @@
             const sidebar = document.getElementById('sidebar');
             const intensitySlider = document.getElementById('intensity');
             const intensityValue = document.getElementById('intensity-value');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
 
             // Actualiza el valor del control deslizante de intensidad
             if (intensitySlider && intensityValue) {
@@ -955,6 +975,17 @@
                     }
                 });
 
+                // Actualiza la visibilidad de los botones de navegación
+                const sectionIds = ['home', 'module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'resources', 'references'];
+                const currentIndex = sectionIds.indexOf(targetId);
+                prevBtn.classList.toggle('hidden', currentIndex === 0);
+                nextBtn.classList.toggle('hidden', currentIndex === sectionIds.length - 1 || currentIndex === 0);
+                if (currentIndex === sectionIds.length - 2) {
+                    nextBtn.textContent = 'Explorar Recursos de Ayuda →';
+                } else {
+                    nextBtn.textContent = 'Siguiente →';
+                }
+
                 sidebar.classList.add('-translate-x-full');
             }
 
@@ -962,6 +993,24 @@
             window.navigateTo = function (targetId) {
                 showSection(targetId);
                 document.querySelector('main').scrollTop = 0;
+            };
+
+            // Función para navegar a la sección anterior
+            window.navigatePrev = function () {
+                const sectionIds = ['home', 'module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'resources', 'references'];
+                const currentIndex = sectionIds.indexOf(document.querySelector('.content-section.active').id);
+                if (currentIndex > 0) {
+                    navigateTo(sectionIds[currentIndex - 1]);
+                }
+            };
+
+            // Función para navegar a la sección siguiente
+            window.navigateNext = function () {
+                const sectionIds = ['home', 'module1', 'module2', 'module3', 'module4', 'module5', 'module6', 'resources', 'references'];
+                const currentIndex = sectionIds.indexOf(document.querySelector('.content-section.active').id);
+                if (currentIndex < sectionIds.length - 1) {
+                    navigateTo(sectionIds[currentIndex + 1]);
+                }
             };
 
             // Evento para los enlaces de navegación
