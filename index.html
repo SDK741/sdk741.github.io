@@ -195,6 +195,15 @@
                     </svg>
                     Recursos de Ayuda
                 </a>
+                <a class="nav-link" data-target="references">
+                    <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                        <line x1="4" y1="22" x2="4" y2="15" />
+                    </svg>
+                    Referencias
+                </a>
             </nav>
         </aside>
 
@@ -266,7 +275,7 @@
                         ayudará a ver los patrones en tus respuestas emocionales.</p>
                     <div class="space-y-4">
                         <div>
-                            <label for="emotion-select" class="block text-sm font-medium text-slate-700 mb-1">1. ¿Qué
+                            <label for="emotion-input" class="block text-sm font-medium text-slate-700 mb-1">1. ¿Qué
                                 emoción sentiste?</label>
                             <input type="text" id="emotion-input" class="w-full p-2 border border-slate-300 rounded-md"
                                 placeholder="Ej: Tristeza, frustración, ansiedad...">
@@ -526,6 +535,23 @@
                     </div>
                 </div>
             </section>
+
+            <!-- References Section -->
+            <section id="references" class="content-section">
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Referencias</h2>
+                <p class="text-lg text-slate-600 mb-8">Las siguientes fuentes científicas y académicas respaldan la información y técnicas presentadas en este taller. Todas las referencias están citadas en formato APA.</p>
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <ol class="list-decimal pl-6 space-y-4 text-slate-700">
+                        <li>American Psychiatric Association. (2022). <i>Diagnostic and statistical manual of mental disorders</i> (5th ed., text rev.). <a href="https://www.psychiatry.org/psychiatrists/practice/dsm" target="_blank" class="text-blue-600 hover:underline">https://www.psychiatry.org/psychiatrists/practice/dsm</a></li>
+                        <li>Beck, J. S. (2020). <i>Cognitive behavior therapy: Basics and beyond</i> (3rd ed.). Guilford Press. <a href="https://www.guilford.com/books/Cognitive-Behavior-Therapy/Judith-Beck/9781462544196" target="_blank" class="text-blue-600 hover:underline">https://www.guilford.com/books/Cognitive-Behavior-Therapy/Judith-Beck/9781462544196</a></li>
+                        <li>Kabat-Zinn, J. (2013). <i>Full catastrophe living: Using the wisdom of your body and mind to face stress, pain, and illness</i> (Revised ed.). Bantam Books. <a href="https://www.penguinrandomhouse.com/books/169793/full-catastrophe-living-revised-edition-by-jon-kabat-zinn-phd/" target="_blank" class="text-blue-600 hover:underline">https://www.penguinrandomhouse.com/books/169793/full-catastrophe-living-revised-edition-by-jon-kabat-zinn-phd/</a></li>
+                        <li>Linehan, M. M. (2014). <i>DBT skills training manual</i> (2nd ed.). Guilford Press. <a href="https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995" target="_blank" class="text-blue-600 hover:underline">https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995</a></li>
+                        <li>Patel, V., Chisholm, D., Parikh, R., Charlson, F. J., Degenhardt, L., Dua, T., ... & Whiteford, H. (2016). Addressing the burden of mental, neurological, and substance use disorders: Key messages from Disease Control Priorities, 3rd edition. <i>The Lancet</i>, 387(10028), 1672-1685. <a href="https://doi.org/10.1016/S0140-6736(15)00390-6" target="_blank" class="text-blue-600 hover:underline">https://doi.org/10.1016/S0140-6736(15)00390-6</a></li>
+                        <li>Pennebaker, J. W., & Smyth, J. M. (2016). <i>Opening up by writing it down: How expressive writing improves health and eases emotional pain</i> (3rd ed.). Guilford Press. <a href="https://www.guilford.com/books/Opening-Up-by-Writing-It-Down/Pennebaker-Smyth/9781462524921" target="_blank" class="text-blue-600 hover:underline">https://www.guilford.com/books/Opening-Up-by-Writing-It-Down/Pennebaker-Smyth/9781462524921</a></li>
+                        <li>World Health Organization. (2022). <i>Mental health atlas 2020</i>. <a href="https://www.who.int/publications/i/item/9789240036703" target="_blank" class="text-blue-600 hover:underline">https://www.who.int/publications/i/item/9789240036703</a></li>
+                    </ol>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -683,7 +709,7 @@
             "Puedo superar los desafíos que se presenten.",
             "Soy digno/a de comprensión y cuidado, incluso en mis días más difíciles.",
             "Merezco tratarme con la misma amabilidad que ofrezco a los demás.",
-            "Está bien permitirme sentir y descansar cuando lo necesito.",
+            "Está bien permitirmi sentir y descansar cuando lo necesito.",
             "Cada pequeño esfuerzo que hago es un acto de valentía.",
             "Soy más que mis pensamientos negativos; mi esencia es valiosa.",
             "Priorizar mi bienestar es un derecho, no una obligación.",
@@ -696,7 +722,6 @@
             const randomIndex = Math.floor(Math.random() * affirmations.length);
             affirmationBox.textContent = affirmations[randomIndex];
         }
-
     </script>
 </body>
 
