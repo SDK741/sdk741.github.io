@@ -14,43 +14,29 @@
     <style>
         .quote-container {
             text-align: center;
-            /* Centra el texto dentro del contenedor */
             margin: 20px auto;
-            /* Centra el contenedor en la página */
             max-width: 600px;
-            /* Limita el ancho del contenedor */
             padding: 20px;
             background-color: #f0f4f8;
-            /* Un color de fondo similar al de la imagen */
             border-radius: 8px;
-            /* Bordes ligeramente redondeados */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Sombra suave para un efecto de profundidad */
         }
 
         .quote-text {
             font-style: italic;
             font-size: 1.3em;
-            /* Ajusta el tamaño de la fuente */
             line-height: 1.5;
             color: #333;
-            /* Color de texto oscuro */
             margin-bottom: 20px;
-            /* Espacio debajo de la cita */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Fuente similar a la de la imagen */
         }
 
         .quote-author {
             text-align: right;
-            /* Alinea el autor a la derecha */
             font-size: 0.9em;
             color: #555;
-            /* Color de texto más claro para el autor */
             margin-top: 15px;
-            /* Espacio encima del autor */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Misma fuente que la cita */
         }
 
         body {
@@ -849,7 +835,7 @@
                 sidebar.classList.add('-translate-x-full');
             }
 
-            windowdevTo = function (targetId) {
+            window.navigateTo = function (targetId) {
                 showSection(targetId);
                 document.querySelector('main').scrollTop = 0;
             };
