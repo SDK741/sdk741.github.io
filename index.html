@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller Interactivo: Manejo Asertivo de Emociones para la Depresión Crónica</title>
-    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv_f1IcAI62yiVPJJXWopmW9MpbEeXSPPVXw&s">
 
+    <!-- Inclusión de bibliotecas externas para estilos y gráficos -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide-react@0.372.0/dist/lucide-react.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!-- Estilos personalizados para el diseño del taller -->
     <style>
+        /* Estilos para el contenedor de citas inspiradoras */
         .quote-container {
             text-align: center;
             margin: 20px auto;
@@ -23,6 +25,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        /* Estilos para el texto de las citas */
         .quote-text {
             font-style: italic;
             font-size: 1.3em;
@@ -32,6 +35,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Estilos para el autor de las citas */
         .quote-author {
             text-align: right;
             font-size: 0.9em;
@@ -40,20 +44,25 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Fuente principal del cuerpo del documento */
         body {
             font-family: 'Inter', sans-serif;
         }
 
+        /* Importación de la fuente Inter desde Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+        /* Oculta las secciones de contenido por defecto */
         .content-section {
             display: none;
         }
 
+        /* Muestra la sección activa */
         .content-section.active {
             display: block;
         }
 
+        /* Estilos para los enlaces de navegación */
         .nav-link {
             display: flex;
             align-items: center;
@@ -64,20 +73,24 @@
             font-weight: 500;
         }
 
+        /* Efecto hover para los enlaces de navegación */
         .nav-link:hover {
             background-color: #e2e8f0;
         }
 
+        /* Estilos para el enlace de navegación activo */
         .nav-link.active {
             background-color: #3b82f6;
             color: white;
             font-weight: 600;
         }
 
+        /* Color de los íconos SVG en el enlace activo */
         .nav-link.active svg {
             stroke: white;
         }
 
+        /* Estilos para las tarjetas de actividades */
         .activity-card {
             background-color: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -87,6 +100,7 @@
             box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
         }
 
+        /* Estilos para los botones principales */
         .btn-primary {
             background-color: #3b82f6;
             color: white;
@@ -96,10 +110,12 @@
             transition: background-color 0.2s;
         }
 
+        /* Efecto hover para los botones principales */
         .btn-primary:hover {
             background-color: #2563eb;
         }
 
+        /* Estilos para las cajas de retroalimentación */
         .feedback-box {
             margin-top: 1rem;
             padding: 0.75rem 1rem;
@@ -108,18 +124,21 @@
             border-width: 1px;
         }
 
+        /* Estilos para retroalimentación correcta */
         .feedback-correct {
             background-color: #dcfce7;
             color: #166534;
             border-color: #86efac;
         }
 
+        /* Estilos para retroalimentación incorrecta */
         .feedback-incorrect {
             background-color: #fee2e2;
             color: #991b1b;
             border-color: #fca5a5;
         }
 
+        /* Estilos para la caja de advertencia */
         .disclaimer-box {
             background-color: #fefce8;
             border: 1px solid #fde047;
@@ -129,6 +148,7 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Estilos para el contenedor del gráfico */
         .chart-container {
             position: relative;
             width: 100%;
@@ -138,10 +158,12 @@
             margin-right: auto;
         }
 
+        /* Estilos para los grupos de formularios */
         .form-group {
             margin-bottom: 1rem;
         }
 
+        /* Estilos para las etiquetas de los formularios */
         .form-group label {
             display: block;
             font-weight: 500;
@@ -149,6 +171,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Estilos para los campos de entrada de formularios */
         .form-group input[type="text"],
         .form-group input[type="datetime-local"],
         .form-group select,
@@ -161,16 +184,19 @@
             color: #1e293b;
         }
 
+        /* Estilos para los campos de texto multilínea */
         .form-group textarea {
             resize: vertical;
             min-height: 80px;
         }
 
+        /* Estilos para el control deslizante */
         .form-group input[type="range"] {
             width: 100%;
             margin-top: 0.5rem;
         }
 
+        /* Estilos para el valor del control deslizante */
         #intensity-value {
             font-weight: 600;
             color: #3b82f6;
@@ -181,20 +207,17 @@
 
 <body class="bg-slate-50 text-slate-800">
     <div class="flex h-screen bg-slate-100">
-        <!-- Sidebar Navigation -->
+        <!-- Barra lateral de navegación -->
         <aside id="sidebar"
             class="bg-white w-64 p-4 flex-shrink-0 border-r border-slate-200 fixed lg:relative h-full lg:h-auto -translate-x-full lg:translate-x-0 transition-transform duration-300 z-20">
+            <!-- Encabezado de la barra lateral -->
             <div class="flex items-center gap-3 mb-8">
                 <div class="bg-blue-500 p-2 rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20Z" />
-                        <path d="M12 12v-4" />
-                        <path d="M12 16h.01" />
-                    </svg>
+                    <i class="fas fa-graduation-cap text-white"></i>
                 </div>
                 <h1 class="text-xl font-bold text-slate-800">Taller Psicología</h1>
             </div>
+            <!-- Menú de navegación -->
             <nav class="space-y-2">
                 <a class="nav-link active" data-target="home">
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -209,14 +232,15 @@
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M15.5 8.5c.3-1.8.3-3.7 0-5.5" />
+                        <pat
+                        h d="M15.5 8.5c.3-1.8.3-3.7 0-5.5" />
                         <path d="M12 16.5c-2.3 0-4.4-.8-6-2.5" />
                         <path d="M8.5 8.5c-.3-1.8-.3-3.7 0-5.5" />
                         <path d="M12 2.5c2.3 0 4.4.8 6 2.5" />
                         <path d="M14.5 13.5c.3-1.8.3-3.7 0-5.5" />
                         <path d="M9.5 13.5c-.3-1.8-.3-3.7 0-5.5" />
                         <path d="M12 20.5c-2.3 0-4.4-.8-6-2.5" />
-                        <path d="M12 2.5c-2.3 0-4.4.8-6 2.5" />
+                        <path labore="M12 2.5c-2.3 0-4.4.8-6 2.5" />
                         <circle cx="12" cy="12" r="10" />
                     </svg>
                     Módulo 1: Conciencia
@@ -263,6 +287,16 @@
                     </svg>
                     Módulo 5: Resiliencia
                 </a>
+                <a class="nav-link" data-target="module6">
+                    <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M12 3v1m7 7h-1m-1 7-2-2m-7-7H5m1-7 2 2m10 10 2 2M3 12h1m7-7v1m7 7h-1m-1 7-2-2m-7-7H5m1 7 2 2" />
+                        <circle cx="12" cy="12" r="10" />
+                    </svg>
+                    Conclusión
+                </a>
                 <a class="nav-link" data-target="resources">
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -284,9 +318,9 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
+        <!-- Contenido principal -->
         <main class="flex-1 p-6 lg:p-10 overflow-y-auto h-screen">
-            <!-- Mobile Header -->
+            <!-- Encabezado para dispositivos móviles -->
             <div class="lg:hidden flex items-center justify-between mb-6">
                 <button id="menu-btn" class="p-2 rounded-md hover:bg-slate-200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -296,10 +330,10 @@
                         <line x1="4" x2="20" y1="18" y2="18" />
                     </svg>
                 </button>
-                <h1 class="text-lg font-bold">Taller Asertivo</h1>
+                <h1 class="text-lg font-bold">Taller Psicología</h1>
             </div>
 
-            <!-- Home Section -->
+            <!-- Sección de inicio -->
             <section id="home" class="content-section active">
                 <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-800 mb-4">Bienvenidos al Taller de Manejo
                     Asertivo de Emociones para la Depresión Crónica</h2>
@@ -307,6 +341,7 @@
                     aprender a gestionar tus emociones y comunicarte de manera más efectiva, especialmente al enfrentar
                     los desafíos de la depresión crónica.</p>
 
+                <!-- Caja de advertencia sobre el propósito del taller -->
                 <div class="disclaimer-box">
                     <h3 class="font-bold text-lg mb-2">Importante: Esto no es una Terapia</h3>
                     <p class="text-sm">Este taller es una herramienta educativa de apoyo y no sustituye la consulta,
@@ -314,6 +349,7 @@
                         una crisis, por favor contacta a los servicios de emergencia o a una línea de ayuda (ver sección
                         "Recursos de Ayuda").</p>
                 </div>
+                <!-- Cita inspiradora -->
                 <div class="quote-container">
                     <p class="quote-text">
                         "La depresión no es una señal de debilidad, sino una indicación de que has sido fuerte durante
@@ -323,6 +359,7 @@
                         - Anónimo
                     </p>
                 </div>
+                <!-- Contenido introductorio y gráfico -->
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
                         <h3 class="text-xl font-bold text-slate-700 mb-3">El Desafío de la Depresión Crónica</h3>
@@ -339,6 +376,7 @@
                             contigo mismo/a.</p>
                     </div>
                     <div class="text-center">
+                        <!-- Contenedor del gráfico de prevalencia -->
                         <div class="chart-container">
                             <canvas id="prevalenceChart"></canvas>
                         </div>
@@ -346,18 +384,20 @@
                             aproximadamente al 5% de la población adulta a nivel global.</p>
                     </div>
                 </div>
+                <!-- Botón para iniciar el taller -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module1')">Comenzar el Taller →</button>
                 </div>
             </section>
 
-            <!-- Module 1 Section -->
+            <!-- Sección del Módulo 1 -->
             <section id="module1" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 1: Reconocimiento y Conciencia Emocional
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">El primer paso es entender qué sientes y por qué. Este módulo te
                     ayudará a conectar con tus emociones sin juicio.</p>
 
+                <!-- Actividad: Mapa Emocional -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Actividad: Mi Mapa Emocional</h3>
                     <p class="text-slate-600 mb-4">Usa esta herramienta para identificar una emoción reciente. Esto te
@@ -386,6 +426,7 @@
                     </div>
                 </div>
 
+                <!-- Actividad: Práctica de Mindfulness -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Práctica de Mindfulness: Anclaje en el Presente
                     </h3>
@@ -406,18 +447,20 @@
                             agua).</p>
                     </div>
                 </div>
+                <!-- Botón para avanzar al siguiente módulo -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module2')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- Module 2 Section -->
+            <!-- Sección del Módulo 2 -->
             <section id="module2" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 2: Desarrollando la Asertividad Personal
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">La asertividad es expresar tus necesidades y opiniones
                     respetándote a ti y a los demás. Aquí aprenderás las herramientas para lograrlo.</p>
 
+                <!-- Explicación sobre la asertividad emocional -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">¿Qué es la Asertividad Emocional?</h3>
                     <p class="text-slate-600 mb-4">Es la habilidad de expresar tus emociones y necesidades de manera
@@ -440,6 +483,7 @@
                     </div>
                 </div>
 
+                <!-- Actividad: Escenario de Rol -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Actividad: Escenario de Rol</h3>
                     <p class="text-slate-600 mb-4">Un amigo te pide un favor grande que te tomará todo el fin de semana,
@@ -459,6 +503,7 @@
                     <div id="feedback-roleplay" class="feedback-box" style="display: none;"></div>
                 </div>
 
+                <!-- Herramienta: Constructor de Mensajes Yo -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Herramienta: Constructor de "Mensajes Yo"</h3>
                     <p class="text-slate-600 mb-4">Usa esta fórmula para expresar tus sentimientos sin culpar,
@@ -490,18 +535,20 @@
                             style="display: none;"></div>
                     </div>
                 </div>
+                <!-- Botón para avanzar al siguiente módulo -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module3')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- Module 3 Section -->
+            <!-- Sección del Módulo 3 -->
             <section id="module3" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 3: Estrategias de Regulación Emocional
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">Aprende a manejar pensamientos negativos y a incorporar
                     actividades que te nutran, incluso cuando no tengas ganas.</p>
 
+                <!-- Actividad: Desafío de Pensamientos Negativos -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Actividad: Desafío de Pensamientos Negativos</h3>
                     <p class="text-slate-600 mb-4">Los pensamientos no son hechos. Usa esta guía para cuestionar un
@@ -529,6 +576,7 @@
                     </div>
                 </div>
 
+                <!-- Herramienta: Planificador de Actividades Gratificantes -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Herramienta: Planificador de Actividades
                         Gratificantes</h3>
@@ -539,11 +587,10 @@
                             placeholder="Ej: Caminar 10 min, escuchar una canción">
                         <button class="btn-primary" onclick="addActivity()">Añadir</button>
                     </div>
-                    <ul id="activity-list" class="mt-4 space-y-2">
-                        <!-- Activities will be added here -->
-                    </ul>
+                    <ul id="activity-list" class="mt-4 space-y-2"></ul>
                 </div>
 
+                <!-- Práctica: Afirmación Positiva -->
                 <div class="activity-card text-center">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Práctica: Afirmación Positiva</h3>
                     <p class="text-slate-600 mb-4">Las afirmaciones ayudan a cultivar la autocompasión. Lee la siguiente
@@ -554,18 +601,20 @@
                     </div>
                     <button class="btn-primary" onclick="generateAffirmation()">Nueva Afirmación</button>
                 </div>
+                <!-- Botón para avanzar al siguiente módulo -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module4')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- Module 4 Section -->
+            <!-- Sección del Módulo 4 -->
             <section id="module4" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 4: Comunicación Asertiva en Relaciones
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">Aplica tus habilidades asertivas para mejorar tus relaciones,
                     resolver conflictos y establecer límites saludables.</p>
 
+                <!-- Herramienta: Creador de Guion Asertivo -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Herramienta: Creador de Guion Asertivo</h3>
                     <p class="text-slate-600 mb-4">A veces, las conversaciones difíciles necesitan preparación. Usa esta
@@ -592,6 +641,7 @@
                     </div>
                 </div>
 
+                <!-- Técnicas avanzadas de asertividad -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Técnicas Avanzadas de Asertividad</h3>
                     <p class="text-slate-600 mb-4">Estas técnicas son útiles cuando te enfrentas a insistencia o
@@ -607,18 +657,20 @@
                         </li>
                     </ul>
                 </div>
+                <!-- Botón para avanzar al siguiente módulo -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('module5')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- Module 5 Section -->
+            <!-- Sección del Módulo 5 -->
             <section id="module5" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 5: Crecimiento Personal y Resiliencia
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">Este módulo te ayudará a consolidar tus aprendizajes y a crear un
                     plan sostenible para manejar tus emociones a largo plazo.</p>
 
+                <!-- Formulario para el diario emocional -->
                 <div class="activity-card emotion-journal">
                     <h3 class="text-xl font-bold text-slate-700 mb-3"><i class="fas fa-book mr-2"></i>Diario Emocional
                     </h3>
@@ -664,6 +716,7 @@
                     <div id="journal-feedback" class="feedback-box" style="display: none;"></div>
                 </div>
 
+                <!-- Formulario para el plan de acción personal -->
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3"><i class="fas fa-hands-helping mr-2"></i>Plan de
                         Acción Personal</h3>
@@ -696,23 +749,72 @@
                     <button class="btn-primary" onclick="saveActionPlan()">Guardar Plan</button>
                     <div id="plan-feedback" class="feedback-box" style="display: none;"></div>
                 </div>
+                <!-- Botón para avanzar al siguiente módulo -->
                 <div class="text-center mt-10">
-                    <button class="btn-primary text-lg" onclick="navigateTo('resources')">Siguiente Sección →</button>
+                    <button class="btn-primary text-lg" onclick="navigateTo('module6')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- Resources Section -->
+            <!-- Sección del Módulo 6 -->
+            <section id="module6" class="content-section">
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Conclusión</h2>
+                <p class="text-lg text-slate-600 mb-8">Has llegado al final de este taller, un viaje hacia el manejo
+                    asertivo de tus emociones y el fortalecimiento de tu resiliencia. A lo largo de los módulos, has
+                    aprendido a reconocer tus emociones, desarrollar la asertividad, regular tus pensamientos, mejorar
+                    tus relaciones y crear un plan personal de bienestar.</p>
+
+                <!-- Reflexión final -->
+                <div class="activity-card">
+                    <h3 class="text-xl font-bold text-slate-700 mb-3">Reflexión Final</h3>
+                    <p class="text-slate-600 mb-4">Tómate un momento para revisar lo que has descubierto sobre ti
+                        mismo/a. El cambio no ocurre de la noche a la mañana, pero cada paso que das es un avance.
+                        Continúa practicando las técnicas aprendidas y ajusta tu plan de acción según tus necesidades.
+                    </p>
+                    <!-- Cita inspiradora -->
+                    <div class="quote-container">
+                        <p class="quote-text">
+                            "El crecimiento personal es un proceso continuo, y cada pequeño esfuerzo cuenta hacia una
+                            vida más equilibrada."
+                        </p>
+                        <p class="quote-author">
+                            - Anónimo
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Recomendaciones para próximos pasos -->
+                <div class="activity-card">
+                    <h3 class="text-xl font-bold text-slate-700 mb-3">Próximos Pasos</h3>
+                    <p class="text-slate-600 mb-4">Te recomendamos mantener un diario emocional, revisar tu plan de
+                        acción regularmente y buscar apoyo profesional si lo necesitas. El bienestar emocional es un
+                        compromiso a largo plazo, y estás mejor equipado/a para enfrentarlo.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-600">
+                        <li>Practica las afirmaciones y técnicas de mindfulness diariamente.</li>
+                        <li>Conecta con tu red de apoyo cuando te sientas abrumado/a.</li>
+                        <li>Consulta los recursos de ayuda si necesitas asistencia adicional.</li>
+                    </ul>
+                </div>
+                <!-- Botón para explorar recursos -->
+                <div class="text-center mt-10">
+                    <button class="btn-primary text-lg" onclick="navigateTo('resources')">Explorar Recursos de Ayuda
+                        →</button>
+                </div>
+            </section>
+
+            <!-- Sección de Recursos de Ayuda -->
             <section id="resources" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Recursos de Ayuda y Líneas de Crisis</h2>
                 <p class="text-lg text-slate-600 mb-8">No estás solo/a. Si necesitas hablar con alguien o estás en
                     crisis, estos recursos están disponibles para ti.</p>
 
+                <!-- Advertencia para emergencias -->
                 <div class="disclaimer-box border-red-400 bg-red-50 text-red-800">
                     <h3 class="font-bold text-lg mb-2">En caso de emergencia</h3>
                     <p class="text-sm">Si tú o alguien que conoces está en peligro inmediato, llama al número de
                         emergencias de tu localidad (ej. 911).</p>
                 </div>
 
+                <!-- Listado de líneas de crisis -->
                 <div class="space-y-6">
                     <div class="bg-white p-4 rounded-lg shadow-sm">
                         <h3 class="font-bold text-lg text-blue-700">Líneas de Prevención del Suicidio y Crisis</h3>
@@ -727,6 +829,7 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- Listado de organizaciones de apoyo -->
                     <div class="bg-white p-4 rounded-lg shadow-sm">
                         <h3 class="font-bold text-lg text-blue-700">Organizaciones de Apoyo en Salud Mental</h3>
                         <ul class="mt-2 space-y-3 divide-y divide-slate-100">
@@ -747,16 +850,18 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Botón para avanzar a la sección de referencias -->
                 <div class="text-center mt-10">
                     <button class="btn-primary text-lg" onclick="navigateTo('references')">Siguiente Sección →</button>
                 </div>
             </section>
 
-            <!-- References Section -->
+            <!-- Sección de Referencias -->
             <section id="references" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Referencias</h2>
                 <p class="text-lg text-slate-600 mb-8">Las siguientes fuentes científicas y académicas respaldan la
                     información y técnicas presentadas en este taller.</p>
+                <!-- Lista de referencias bibliográficas -->
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <ol class="list-decimal pl-6 space-y-4 text-slate-700">
                         <li>American Psychiatric Association. (2022). <i>Diagnostic and statistical manual of mental
@@ -801,10 +906,26 @@
                     </ol>
                 </div>
             </section>
+
+            <!-- Pie de página -->
+            <footer
+                style="background-color: #3A3F47; color: white; padding: 20px; text-align: center; border-radius: 15px; margin-top: 30px; width: calc(100% - 64px); margin-left: 64px;">
+                <p style="margin: 5px 0; font-size: 16px;">
+                    Taller Interactivo: Manejo Asertivo de Emociones para la Depresión Crónica
+                </p>
+                <p style="margin: 5px 0; font-size: 15px;">
+                    Material creado por: Saywa Guaillas, Carolina Guerrero, Javier Revelo, Ariana Tinoco.
+                </p>
+                <p style="margin: 5px 0; font-size: 14px;">
+                    © 2025 - Carrera de Medicina
+                </p>
+            </footer>
         </main>
     </div>
 
+    <!-- Scripts para la funcionalidad interactiva -->
     <script>
+        // Inicialización al cargar el documento
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.nav-link');
             const contentSections = document.querySelectorAll('.content-section');
@@ -813,13 +934,14 @@
             const intensitySlider = document.getElementById('intensity');
             const intensityValue = document.getElementById('intensity-value');
 
-            // Update intensity value display
+            // Actualiza el valor del control deslizante de intensidad
             if (intensitySlider && intensityValue) {
                 intensitySlider.addEventListener('input', () => {
                     intensityValue.textContent = intensitySlider.value;
                 });
             }
 
+            // Función para mostrar una sección específica
             function showSection(targetId) {
                 contentSections.forEach(section => {
                     section.classList.remove('active');
@@ -836,11 +958,13 @@
                 sidebar.classList.add('-translate-x-full');
             }
 
+            // Función global para navegar entre secciones
             window.navigateTo = function (targetId) {
                 showSection(targetId);
                 document.querySelector('main').scrollTop = 0;
             };
 
+            // Evento para los enlaces de navegación
             navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     const targetId = link.dataset.target;
@@ -848,17 +972,19 @@
                 });
             });
 
+            // Evento para mostrar/ocultar la barra lateral en móviles
             menuBtn.addEventListener('click', () => {
                 sidebar.classList.toggle('-translate-x-full');
             });
 
+            // Cierra la barra lateral al hacer clic fuera de ella
             document.querySelector('main').addEventListener('click', (e) => {
                 if (!sidebar.contains(e.target) && !menuBtn.contains(e.target) && !sidebar.classList.contains('-translate-x-full')) {
                     sidebar.classList.add('-translate-x-full');
                 }
             });
 
-            // Chart.js implementation
+            // Configuración del gráfico de prevalencia
             const ctx = document.getElementById('prevalenceChart').getContext('2d');
             new Chart(ctx, {
                 type: 'doughnut',
@@ -867,8 +993,8 @@
                     datasets: [{
                         data: [5, 95],
                         backgroundColor: [
-                            '#3b82f6', // blue-500
-                            '#e5e7eb'  // gray-200
+                            '#3b82f6',
+                            '#e5e7eb'
                         ],
                         borderColor: [
                             '#ffffff',
@@ -897,7 +1023,7 @@
             });
         });
 
-        // Interactive activities logic
+        // Función para verificar respuestas asertivas
         function checkAssertiveness(isCorrect, feedbackId, type = 'correct') {
             const feedbackEl = document.getElementById(feedbackId);
             feedbackEl.style.display = 'block';
@@ -916,6 +1042,7 @@
             }
         }
 
+        // Función para construir mensajes "Yo"
         function buildIMessage() {
             const cuando = document.getElementById('yo-cuando').value;
             const siento = document.getElementById('yo-siento').value;
@@ -932,6 +1059,7 @@
             }
         }
 
+        // Función para añadir actividades gratificantes
         function addActivity() {
             const input = document.getElementById('activity-input');
             const list = document.getElementById('activity-list');
@@ -956,6 +1084,7 @@
             }
         }
 
+        // Lista de afirmaciones positivas
         const affirmations = [
             "Soy capaz de manejar las emociones difíciles.",
             "Merezco sentirme tranquilo/a y en paz.",
@@ -975,12 +1104,14 @@
             "Puedo avanzar a mi propio ritmo, y eso es suficiente."
         ];
 
+        // Función para generar afirmaciones positivas aleatorias
         function generateAffirmation() {
             const affirmationBox = document.getElementById('affirmation-box');
             const randomIndex = Math.floor(Math.random() * affirmations.length);
             affirmationBox.textContent = affirmations[randomIndex];
         }
 
+        // Función para guardar entradas en el diario emocional
         function saveJournalEntry() {
             const date = document.getElementById('emotion-date').value;
             const emotion = document.getElementById('emotion').value;
@@ -995,7 +1126,6 @@
             if (date && emotion && intensity && thoughts && response) {
                 feedbackEl.classList.add('feedback-correct');
                 feedbackEl.textContent = '¡Entrada guardada con éxito! Reflexionar sobre tus emociones es un gran paso hacia el crecimiento personal.';
-                // Clear form
                 document.getElementById('emotion-date').value = '';
                 document.getElementById('emotion').value = '';
                 document.getElementById('intensity').value = '5';
@@ -1008,6 +1138,7 @@
             }
         }
 
+        // Función para guardar el plan de acción personal
         function saveActionPlan() {
             const signals = document.querySelector('textarea[placeholder*="Aislamiento social"]').value.trim();
             const strategies = document.querySelector('textarea[placeholder*="Practicar respiración"]').value.trim();
@@ -1021,7 +1152,6 @@
             if (signals && strategies && support && selfCare) {
                 feedbackEl.classList.add('feedback-correct');
                 feedbackEl.textContent = '¡Plan guardado con éxito! Tener un plan claro te ayudará a enfrentar los desafíos emocionales.';
-                // Clear form
                 document.querySelector('textarea[placeholder*="Aislamiento social"]').value = '';
                 document.querySelector('textarea[placeholder*="Practicar respiración"]').value = '';
                 document.querySelector('textarea[placeholder*="Nombre, relación"]').value = '';
