@@ -297,7 +297,8 @@
                         <p class="text-slate-600">Este taller te guiará a través de técnicas basadas en la Terapia
                             Cognitivo-Conductual (TCC) y la Terapia Dialéctico-Conductual (DBT) para que construyas
                             resiliencia y te sientas más en control.</p>
-                            <br><p class="text-slate-600 mb-4">Aprenderás a identificar tus emociones, comprender sus causas,
+                        <br>
+                        <p class="text-slate-600 mb-4">Aprenderás a identificar tus emociones, comprender sus causas,
                             desarrollar estrategias saludables de afrontamiento y construir una relación más compasiva
                             contigo mismo/a.</p>
                     </div>
@@ -380,6 +381,25 @@
                 </h2>
                 <p class="text-lg text-slate-600 mb-8">La asertividad es expresar tus necesidades y opiniones
                     respetándote a ti y a los demás. Aquí aprenderás las herramientas para lograrlo.</p>
+
+                <div class="activity-card">
+                    <h3 class="text-xl font-bold text-slate-700 mb-3">¿Qué es la Asertividad Emocional?</h3>
+                    <p class="text-slate-600 mb-4">Es la habilidad de expresar tus emociones y necesidades de manera clara, directa y respetuosa, sin ser pasivo ni agresivo. Ser asertivo significa valorar tus propios sentimientos y, al mismo tiempo, considerar los de los demás.</p>
+                    <div class="grid md:grid-cols-3 gap-4 text-center">
+                        <div class="p-4 bg-red-100 rounded-lg">
+                            <h4 class="font-bold text-red-800">Estilo Pasivo</h4>
+                            <p class="text-sm text-red-700">No expresas tus necesidades. Evitas el conflicto a toda costa.</p>
+                        </div>
+                        <div class="p-4 bg-yellow-100 rounded-lg">
+                            <h4 class="font-bold text-yellow-800">Estilo Agresivo</h4>
+                            <p class="text-sm text-yellow-700">Impones tus necesidades sin respetar a los demás.</p>
+                        </div>
+                        <div class="p-4 bg-green-100 rounded-lg">
+                            <h4 class="font-bold text-green-800">Estilo Asertivo</h4>
+                            <p class="text-sm text-green-700">Expresas tus necesidades con respeto y confianza.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">Actividad: Escenario de Rol</h3>
@@ -778,7 +798,7 @@
                 sidebar.classList.add('-translate-x-full');
             }
 
-            window.navigateTo = function (targetId) {
+            windowdevTo = function (targetId) {
                 showSection(targetId);
                 document.querySelector('main').scrollTop = 0;
             };
