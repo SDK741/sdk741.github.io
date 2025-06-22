@@ -12,6 +12,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
+        .quote-container {
+            text-align: center;
+            /* Centra el texto dentro del contenedor */
+            margin: 20px auto;
+            /* Centra el contenedor en la página */
+            max-width: 600px;
+            /* Limita el ancho del contenedor */
+            padding: 20px;
+            background-color: #f0f4f8;
+            /* Un color de fondo similar al de la imagen */
+            border-radius: 8px;
+            /* Bordes ligeramente redondeados */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Sombra suave para un efecto de profundidad */
+        }
+
+        .quote-text {
+            font-style: italic;
+            font-size: 1.3em;
+            /* Ajusta el tamaño de la fuente */
+            line-height: 1.5;
+            color: #333;
+            /* Color de texto oscuro */
+            margin-bottom: 20px;
+            /* Espacio debajo de la cita */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Fuente similar a la de la imagen */
+        }
+
+        .quote-author {
+            text-align: right;
+            /* Alinea el autor a la derecha */
+            font-size: 0.9em;
+            color: #555;
+            /* Color de texto más claro para el autor */
+            margin-top: 15px;
+            /* Espacio encima del autor */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Misma fuente que la cita */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -286,7 +327,15 @@
                         una crisis, por favor contacta a los servicios de emergencia o a una línea de ayuda (ver sección
                         "Recursos de Ayuda").</p>
                 </div>
-
+                <div class="quote-container">
+                    <p class="quote-text">
+                        "La depresión no es una señal de debilidad, sino una indicación de que has sido fuerte durante
+                        <br>demasiado tiempo."
+                    </p>
+                    <p class="quote-author">
+                        - Anónimo
+                    </p>
+                </div>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
                         <h3 class="text-xl font-bold text-slate-700 mb-3">El Desafío de la Depresión Crónica</h3>
@@ -384,11 +433,14 @@
 
                 <div class="activity-card">
                     <h3 class="text-xl font-bold text-slate-700 mb-3">¿Qué es la Asertividad Emocional?</h3>
-                    <p class="text-slate-600 mb-4">Es la habilidad de expresar tus emociones y necesidades de manera clara, directa y respetuosa, sin ser pasivo ni agresivo. Ser asertivo significa valorar tus propios sentimientos y, al mismo tiempo, considerar los de los demás.</p>
+                    <p class="text-slate-600 mb-4">Es la habilidad de expresar tus emociones y necesidades de manera
+                        clara, directa y respetuosa, sin ser pasivo ni agresivo. Ser asertivo significa valorar tus
+                        propios sentimientos y, al mismo tiempo, considerar los de los demás.</p>
                     <div class="grid md:grid-cols-3 gap-4 text-center">
                         <div class="p-4 bg-red-100 rounded-lg">
                             <h4 class="font-bold text-red-800">Estilo Pasivo</h4>
-                            <p class="text-sm text-red-700">No expresas tus necesidades. Evitas el conflicto a toda costa.</p>
+                            <p class="text-sm text-red-700">No expresas tus necesidades. Evitas el conflicto a toda
+                                costa.</p>
                         </div>
                         <div class="p-4 bg-yellow-100 rounded-lg">
                             <h4 class="font-bold text-yellow-800">Estilo Agresivo</h4>
@@ -717,7 +769,8 @@
             <section id="references" class="content-section">
                 <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Referencias</h2>
                 <p class="text-lg text-slate-600 mb-8">Las siguientes fuentes científicas y académicas respaldan la
-                    información y técnicas presentadas en este taller.</p>
+                    información y técnicas presentadas en este taller. Todas las referencias están citadas en formato
+                    APA.</p>
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <ol class="list-decimal pl-6 space-y-4 text-slate-700">
                         <li>American Psychiatric Association. (2022). <i>Diagnostic and statistical manual of mental
