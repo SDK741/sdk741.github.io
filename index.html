@@ -11,7 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide-react@0.372.0/dist/lucide-react.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC52zIlGZLyRkC3SUpuI-W-wi4i11puUw9Kg&s">
+    <link rel="shortcut icon" type="image/png"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC52zIlGZLyRkC3SUpuI-W-wi4i11puUw9Kg&s">
     <!-- Estilos personalizados para el diseño del taller -->
     <style>
         /* Estilos para el contenedor de citas inspiradoras */
@@ -294,7 +295,7 @@
                             d="M12 3v1m7 7h-1m-1 7-2-2m-7-7H5m1-7 2 2m10 10 2 2M3 12h1m7-7v1m7 7h-1m-1 7-2-2m-7-7H5m1 7 2 2" />
                         <circle cx="12" cy="12" r="10" />
                     </svg>
-                    Módulo 6: Conclusión
+                    Conclusión
                 </a>
                 <a class="nav-link" data-target="resources">
                     <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -409,10 +410,20 @@
                         ayudará a ver los patrones en tus respuestas emocionales.</p>
                     <div class="space-y-4">
                         <div>
-                            <label for="emotion-input" class="block text-sm font-medium text-slate-700 mb-1">1. ¿Qué
+                            <label for="emotion-select" class="block text-sm font-medium text-slate-700 mb-1">1. ¿Qué
                                 emoción sentiste?</label>
-                            <input type="text" id="emotion-input" class="w-full p-2 border border-slate-300 rounded-md"
-                                placeholder="Ej: Tristeza, frustración, ansiedad...">
+                            <select id="emotion-select" class="w-full p-2 border border-slate-300 rounded-md"
+                                onchange="toggleOtherEmotion(this)">
+                                <option value="">Selecciona una emoción...</option>
+                                <option value="tristeza">Tristeza</option>
+                                <option value="frustracion">Frustración</option>
+                                <option value="ansiedad">Ansiedad</option>
+                                <option value="alegria">Alegría</option>
+                                <option value="otra">Otra</option>
+                            </select>
+                            <input type="text" id="emotion-other"
+                                class="w-full p-2 border border-slate-300 rounded-md mt-2" style="display: none;"
+                                placeholder="Especifica tu emoción...">
                         </div>
                         <div>
                             <label for="trigger-input" class="block text-sm font-medium text-slate-700 mb-1">2. ¿Qué
@@ -693,7 +704,8 @@
 
                     <div class="form-group">
                         <label for="emotion">Emoción Principal:</label>
-                        <select id="emotion">
+                        <select id="emotion" class="w-full p-2 border border-slate-300 rounded-md"
+                            onchange="toggleOtherEmotionDiary(this)">
                             <option value="">Selecciona una emoción...</option>
                             <option value="tristeza">Tristeza</option>
                             <option value="ansiedad">Ansiedad</option>
@@ -702,6 +714,9 @@
                             <option value="culpa">Culpa</option>
                             <option value="otra">Otra</option>
                         </select>
+                        <input type="text" id="emotion-other-diary"
+                            class="w-full p-2 border border-slate-300 rounded-md mt-2" style="display: none;"
+                            placeholder="Especifica tu emoción...">
                     </div>
 
                     <div class="form-group">
@@ -767,7 +782,7 @@
 
             <!-- Sección del Módulo 6 -->
             <section id="module6" class="content-section">
-                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Módulo 6: Conclusión</h2>
+                <h2 class="text-3xl font-extrabold text-slate-800 mb-2">Conclusión</h2>
                 <p class="text-lg text-slate-600 mb-8">Has llegado al final de este taller, un viaje hacia el manejo
                     asertivo de tus emociones y el fortalecimiento de tu resiliencia. A lo largo de los módulos, has
                     aprendido a reconocer tus emociones, desarrollar la asertividad, regular tus pensamientos, mejorar
@@ -877,43 +892,45 @@
                 <!-- Lista de referencias bibliográficas -->
                 <div class="bg-white p-6 rounded-lg shadow-sm">
                     <ol class="list-decimal pl-6 space-y-4 text-slate-700">
-                        <li>American Psychiatric Association. (2022). <i>Diagnostic and statistical manual of mental
-                                disorders</i> (5th ed., text rev.). <a
-                                href="https://www.psychiatry.org/psychiatrists/practice/dsm" target="_blank"
-                                class="text-blue-600 hover:underline">https://www.psychiatry.org/psychiatrists/practice/dsm</a>
-                        </li>
-                        <li>Beck, J. S. (2020). <i>Cognitive behavior therapy: Basics and beyond</i> (3rd ed.). Guilford
-                            Press. <a
-                                href="https://www.guilford.com/books/Cognitive-Behavior-Therapy/Judith-Beck/9781462544196"
+                        <li>American Psychiatric Association. DIAGNOSTIC AND STATISTICAL MANUAL OF MENTAL DISORDERS
+                            FIFTH EDITION. febrero de 2022 [citado 20 de junio de 2025];5. Disponible en: <a
+                                href="https://www.mredscircleoftrust.com/storage/app/media/DSM%205%20TR.pdf"
                                 target="_blank"
-                                class="text-blue-600 hover:underline">https://www.guilford.com/books/Cognitive-Behavior-Therapy/Judith-Beck/9781462544196</a>
+                                class="text-blue-600 hover:underline">https://www.mredscircleoftrust.com/storage/app/media/DSM%205%20TR.pdf</a>
                         </li>
-                        <li>Kabat-Zinn, J. (2013). <i>Full catastrophe living: Using the wisdom of your body and mind to
-                                face stress, pain, and illness</i> (Revised ed.). Bantam Books. <a
-                                href="https://www.penguinrandomhouse.com/books/169793/full-catastrophe-living-revised-edition-by-jon-kabat-zinn-phd/"
-                                target="_blank"
-                                class="text-blue-600 hover:underline">https://www.penguinrandomhouse.com/books/169793/full-catastrophe-living-revised-edition-by-jon-kabat-zinn-phd/</a>
+                        <li>Beck JS., Beck AT. Cognitive behavior therapy: basics and beyond. 2021 [citado 20 de junio
+                            de 2025];414. Disponible en:
+                            <a href="https://books.google.com.ec/books?id=yb_nDwAAQBAJ" target="_blank"
+                                class="text-blue-600 hover:underline">https://books.google.com.ec/books?id=yb_nDwAAQBAJ</a>
                         </li>
-                        <li>Linehan, M. M. (2014). <i>DBT skills training manual</i> (2nd ed.). Guilford Press. <a
-                                href="https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995"
-                                target="_blank"
-                                class="text-blue-600 hover:underline">https://www.guilford.com/books/DBT-Skills-Training-Manual/Marsha-Linehan/9781462516995</a>
+                        <li>Hardt J, Schultz S, Xander C, Becker G, Dragan M, Hardt J, et al. The Spirituality
+                            Questionnaire: Core Dimensions of Spirituality. Psychology [Internet]. 5 de enero de 2012
+                            [citado 20 de junio de 2025];3(1):116-22. Disponible en: <a
+                                href="https://www.scirp.org/html/16770.html" target="_blank"
+                                class="text-blue-600 hover:underline">https://www.scirp.org/html/16770.html</a>
                         </li>
-                        <li>Patel, V., Chisholm, D., Parikh, R., Charlson, F. J., Degenhardt, L., Dua, T., ... &
-                            Whiteford, H. (2016). Addressing the burden of mental, neurological, and substance use
-                            disorders: Key messages from Disease Control Priorities, 3rd edition. <i>The Lancet</i>,
-                            387(10028), 1672-1685. <a href="https://doi.org/10.1016/S0140-6736(15)00390-6"
-                                target="_blank"
-                                class="text-blue-600 hover:underline">https://doi.org/10.1016/S0140-6736(15)00390-6</a>
+                        <li>Linehan MM. DBT Skills Training Manual, Second Edition. DBT Skills Training Manual, Second
+                            Edition [Internet]. 2015 [citado 20 de junio de 2025];3-19. Disponible en: <a
+                                href="http://behavioraltech.org/downloads/Linehan-2014-ch1.pdf" target="_blank"
+                                class="text-blue-600 hover:underline">http://behavioraltech.org/downloads/Linehan-2014-ch1.pdf</a>
                         </li>
-                        <li>Pennebaker, J. W., & Smyth, J. M. (2016). <i>Opening up by writing it down: How expressive
-                                writing improves health and eases emotional pain</i> (3rd ed.). Guilford Press. <a
+                        <li>Patel V, Chisholm D, Parikh R, Charlson FJ, Degenhardt L, Dua T, et al. Addressing the
+                            burden of mental, neurological, and substance use disorders: Key messages from Disease
+                            Control Priorities, 3rd edition. The Lancet [Internet]. 16 de abril de 2016 [citado 20 de
+                            junio de 2025];387(10028):1672-85. Disponible en: <a
+                                href="https://pubmed.ncbi.nlm.nih.gov/26454360/" target="_blank"
+                                class="text-blue-600 hover:underline">https://pubmed.ncbi.nlm.nih.gov/26454360/</a>
+                        </li>
+                        <li>PPennebaker JW, Smyth JM. Opening Up by Writing It Down: Third Edition: How Expressive
+                            Writing Improves Health and Eases Emotional Pain. Opening Up by Writing it Down [Internet].
+                            2016 [citado 20 de junio de 2025];1-12. Disponible en: <a
                                 href="https://www.guilford.com/books/Opening-Up-by-Writing-It-Down/Pennebaker-Smyth/9781462524921"
                                 target="_blank"
                                 class="text-blue-600 hover:underline">https://www.guilford.com/books/Opening-Up-by-Writing-It-Down/Pennebaker-Smyth/9781462524921</a>
                         </li>
-                        <li>World Health Organization. (2022). <i>Mental health atlas 2020</i>. <a
-                                href="https://www.who.int/publications/i/item/9789240036703" target="_blank"
+                        <li>WHO Team. Mental Health Atlas 2020. WHO Publication [Internet]. 2021 [citado 20 de junio de
+                            2025];1-136. Disponible en: <a href="https://www.who.int/publications/i/item/9789240036703"
+                                target="_blank"
                                 class="text-blue-600 hover:underline">https://www.who.int/publications/i/item/9789240036703</a>
                         </li>
                     </ol>
@@ -1180,7 +1197,8 @@
         // Función para guardar entradas en el diario emocional
         function saveJournalEntry() {
             const date = document.getElementById('emotion-date').value;
-            const emotion = document.getElementById('emotion').value;
+            const emotionSelect = document.getElementById('emotion');
+            const emotionOther = document.getElementById('emotion-other-diary').value || emotionSelect.value;
             const intensity = document.getElementById('intensity').value;
             const thoughts = document.getElementById('thoughts').value.trim();
             const response = document.getElementById('response').value.trim();
@@ -1189,7 +1207,7 @@
             feedbackEl.style.display = 'block';
             feedbackEl.classList.remove('feedback-correct', 'feedback-incorrect');
 
-            if (date && emotion && intensity && thoughts && response) {
+            if (date && emotionOther && intensity && thoughts && response) {
                 feedbackEl.classList.add('feedback-correct');
                 feedbackEl.textContent = '¡Entrada guardada con éxito! Reflexionar sobre tus emociones es un gran paso hacia el crecimiento personal.';
                 document.getElementById('emotion-date').value = '';
@@ -1198,6 +1216,8 @@
                 document.getElementById('intensity-value').textContent = '5';
                 document.getElementById('thoughts').value = '';
                 document.getElementById('response').value = '';
+                document.getElementById('emotion-other-diary').value = '';
+                document.getElementById('emotion-other-diary').style.display = 'none';
             } else {
                 feedbackEl.classList.add('feedback-incorrect');
                 feedbackEl.textContent = 'Por favor, completa todos los campos antes de guardar la entrada.';
@@ -1225,6 +1245,28 @@
             } else {
                 feedbackEl.classList.add('feedback-incorrect');
                 feedbackEl.textContent = 'Por favor, completa todos los campos antes de guardar el plan.';
+            }
+        }
+
+        // Función para mostrar/ocultar el campo de texto para "otra" emoción
+        function toggleOtherEmotion(select) {
+            const otherInput = document.getElementById('emotion-other');
+            if (select.value === 'otra') {
+                otherInput.style.display = 'block';
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.value = '';
+            }
+        }
+
+        // Función para mostrar/ocultar el campo de texto para "otra" emoción en el diario
+        function toggleOtherEmotionDiary(select) {
+            const otherInput = document.getElementById('emotion-other-diary');
+            if (select.value === 'otra') {
+                otherInput.style.display = 'block';
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.value = '';
             }
         }
     </script>
